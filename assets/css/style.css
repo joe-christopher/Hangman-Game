@@ -3,31 +3,32 @@ body {
 }
 
 
-.stylePic {
-	width: 300px;
-	height: 250px;
-}
 
 p {
-	color: #5A1B26;
-	font-family: Arial, Helvetica, sans-serif;
+	color: black;
+	font-family: 'Bangers', cursive;
 	font-size: 24px;
 }
 
-
-
-/* .change {
-	width: 400px;
-	height: 350px;
-} */
+h2 {
+	color: red;
+	font-family: 'Bangers', cursive;
+	font-size: 32px;
+}
 
 h1{
-	color: #5A1B26;
-	font-family: Arial, Helvetica, sans-serif;
-	color: red;
+	color:black;
+	font-family: 'Bangers', cursive;
 	font-size: 64px;
 
 }
 #mainContent{
 	background: white;
+
+}
+
+#Winningimage{
+	height: 350px;
+	width: 350px;
+
 }

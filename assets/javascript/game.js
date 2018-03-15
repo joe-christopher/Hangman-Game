@@ -8,7 +8,7 @@ var counter = 0;
 var guessedLetters = [];
 var wins = 0;
 var losses =0;
-var guessesLeft = 6;
+var guessesLeft = 11;
 var firstGame = true;
 var yokai = [
     {name: "whisper", picture: "assets/images/whisper.jpg" },
@@ -21,20 +21,37 @@ var yokai = [
     {name: "roughraff", picture: "assets/images/roughraff.jpg" },
     {name: "blizzaria", picture: "assets/images/blizzaria.jpg" },
     {name: "shogunyan", picture: "assets/images/shogunyan.jpg" },
-    {name: "darumacho", picture: "assets/images/daramucho.jpg" },
+    {name: "darumacho", picture: "assets/images/darumacho.jpg" },
     {name: "hidabat", picture: "assets/images/hidabat.jpg" },
     {name: "kyubi", picture: "assets/images/kyubi.jpg" },
     {name: "venoct", picture: "assets/images/venoct.jpg" },
     {name: "manjimutt", picture: "assets/images/manjimutt.jpg" },
     {name: "tengu", picture: "assets/images/tengu.jpg" },
-    {name: "skranny", picture: "assets/images/skranny.jpg" }
+    {name: "skranny", picture: "assets/images/skranny.jpg" },
+    {name: "lodo", picture: "assets/images/lodo.jpg" },
+    {name: "espy", picture: "assets/images/espy.jpg" },
+    {name: "fumazaru", picture: "assets/images/fumazaru.jpg" },
+    {name: "signibble", picture: "assets/images/signibble.jpg" },
+    {name: "tattlecast", picture: "assets/images/tattlecast.jpg" },
+    {name: "wazzat", picture: "assets/images/wazzat.jpg" },
+    {name: "duchoo", picture: "assets/images/duchoo.jpg" },
+    {name: "snotsolong", picture: "assets/images/snotsolong.jpg" },
+    {name: "beetall", picture: "assets/images/beetall.jpg" },
+    {name: "kapunki", picture: "assets/images/kapunki.jpg" },
+    {name: "quaken", picture: "assets/images/quaken.jpg" },
+    {name: "corptain", picture: "assets/images/corptain.jpg" },
+    {name: "zerberker", picture: "assets/images/zerberker.jpg" },
+    {name: "tanbo", picture: "assets/images/tanbo.jpg" },
+    {name: "jibakoma", picture: "assets/images/jibakoma.jpg" },
+
 ];
+
 
 
 function printBlanks() {
     challenge = getRandomItem(yokai);
 
-    // document.querySelector("#Winningimage").innerHTML = "<img class = 'img-responsive center-block change rounded' src = 'assets/images/yokaigroup.jpg'>"
+
 
 
     for (var i = 0; i < challenge.name.length; i++) {
@@ -85,9 +102,10 @@ function compare(letter) {
 
 function win() {
     if (spaces.indexOf("_") === -1) {
+        new Audio("assets/sounds/win.mp3").play();
         wins++;
         newGame = true;
-        guessesLeft = 6;
+        guessesLeft = 11;
         guessedLetters = [];
         progressWord = "";
         spaces = [];
@@ -99,12 +117,13 @@ function win() {
     if(guessesLeft <=0) {
     	newGame = true;
     	firstGame = true;
-    	guessesLeft = 6;
+        guessesLeft = 11;
+        new Audio("assets/sounds/lose.mp3").play();
         losses++;
     	guessedLetters = [];
     	progressWord = "";
     	spaces = [];
-    	document.querySelector("#Winningimage").innerHTML = "<img class = 'img-responsive center-block change rounded' src = 'assets/images/yokaigroup.jpg'>"
+    	document.querySelector("#Winningimage").innerHTML = "<img class = 'img-responsive center-block change rounded' src = 'assets/images/hm.gif'>"
     }
 }
 
@@ -121,6 +140,7 @@ document.onkeyup = function(event) {
 
         if (validInput(userGuess)) {
             compare(userGuess);
+            document.querySelector("#Winningimage").innerHTML = "<img class = 'img-responsive center-block change rounded' src = 'assets/images/hm.gif'>"
             win();
             document.querySelector("#lettersToGuess").innerHTML = progressWord;
             document.querySelector("#wrongLetters").innerHTML = guessedLetters.join(", ");
